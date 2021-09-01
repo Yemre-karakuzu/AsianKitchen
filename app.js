@@ -78,7 +78,7 @@ const Japanootİtems = document.getElementById("Japan");
 const Chinaootİtems = document.getElementById("China");
 const menu = document.querySelector(".section-center")
 const section = document.querySelector(".section-center")
-allFoot()
+createFootElement(menuList)
 AllFootİtems.focus()
 
 AllFootİtems.addEventListener("click", allFoot);
@@ -86,9 +86,9 @@ Koreaootİtems.addEventListener("click", koreaFoot);
 Japanootİtems.addEventListener("click", japanFoot);
 Chinaootİtems.addEventListener("click", chinaFoot);
 
-function allFoot() {
+function createFootElement(FootMenu) {
     clearDom()
-    menuList.forEach(element => {
+    FootMenu.forEach(element => {
         const foot = document.createElement('div');
         const footPhoto = document.createElement("div")
         const footPhotoItem = document.createElement("img")
@@ -116,117 +116,30 @@ function allFoot() {
         footPhoto.appendChild(footPhotoItem)
         foot.appendChild(footPhoto)
         foot.appendChild(footText)
-            // foot.appendChild(footInfo)
         menu.appendChild(foot)
     });
+}
+
+function allFoot() {
+    const allFootList = menuList;
+    createFootElement(allFootList)
 }
 
 function koreaFoot() {
-    clearDom()
-    const koreaFootLisy = menuList.filter(category => category.category == "Korea")
-    koreaFootLisy.forEach(element => {
-        const foot = document.createElement('div');
-        const footPhoto = document.createElement("div")
-        const footPhotoItem = document.createElement("img")
-        const footText = document.createElement("div")
-        const footTitle = document.createElement("div")
-        const footTitleItem = document.createElement("h4")
-        const footPriceItem = document.createElement("h4")
-        const footInfo = document.createElement("div")
-        const footInfoItem = document.createElement("div")
-        foot.className = 'menu-items'
-        footText.className = 'menu-text'
-        footPhoto.className = 'photo'
-        footPhotoItem.className = 'photoItem'
-        footTitle.className = 'menu-title '
-        footInfo.className = 'menu-info'
-        footPhotoItem.src = `${element.img}`
-        footTitleItem.innerHTML = `${element.title}`
-        footPriceItem.innerHTML = `${element.price}`
-        footInfo.innerHTML = `${element.desc}`
-        footTitle.appendChild(footTitleItem)
-        footTitle.appendChild(footPriceItem)
-        footInfo.appendChild(footInfoItem)
-        footText.appendChild(footTitle)
-        footText.appendChild(footInfo)
-        footPhoto.appendChild(footPhotoItem)
-        foot.appendChild(footPhoto)
-        foot.appendChild(footText)
-            // foot.appendChild(footInfo)
-        menu.appendChild(foot)
-    });
+    const koreaFootList = menuList.filter(category => category.category == "Korea")
+    createFootElement(koreaFootList)
 }
 
 function japanFoot() {
-    clearDom()
     const japanFootLisy = menuList.filter(category => category.category == "Japan")
-    japanFootLisy.forEach(element => {
-        const foot = document.createElement('div');
-        const footPhoto = document.createElement("div")
-        const footPhotoItem = document.createElement("img")
-        const footText = document.createElement("div")
-        const footTitle = document.createElement("div")
-        const footTitleItem = document.createElement("h4")
-        const footPriceItem = document.createElement("h4")
-        const footInfo = document.createElement("div")
-        const footInfoItem = document.createElement("div")
-        foot.className = 'menu-items'
-        footText.className = 'menu-text'
-        footPhoto.className = 'photo'
-        footPhotoItem.className = 'photoItem'
-        footTitle.className = 'menu-title '
-        footInfo.className = 'menu-info'
-        footPhotoItem.src = `${element.img}`
-        footTitleItem.innerHTML = `${element.title}`
-        footPriceItem.innerHTML = `${element.price}`
-        footInfo.innerHTML = `${element.desc}`
-        footTitle.appendChild(footTitleItem)
-        footTitle.appendChild(footPriceItem)
-        footInfo.appendChild(footInfoItem)
-        footText.appendChild(footTitle)
-        footText.appendChild(footInfo)
-        footPhoto.appendChild(footPhotoItem)
-        foot.appendChild(footPhoto)
-        foot.appendChild(footText)
-            // foot.appendChild(footInfo)
-        menu.appendChild(foot)
-    });
+    createFootElement(japanFootLisy)
 }
 
 function chinaFoot() {
-    clearDom()
+
     const chinaFootLisy = menuList.filter(category => category.category == "China")
-    chinaFootLisy.forEach(element => {
-        const foot = document.createElement('div');
-        const footPhoto = document.createElement("div")
-        const footPhotoItem = document.createElement("img")
-        const footText = document.createElement("div")
-        const footTitle = document.createElement("div")
-        const footTitleItem = document.createElement("h4")
-        const footPriceItem = document.createElement("h4")
-        const footInfo = document.createElement("div")
-        const footInfoItem = document.createElement("div")
-        foot.className = 'menu-items'
-        footText.className = 'menu-text'
-        footPhoto.className = 'photo'
-        footPhotoItem.className = 'photoItem'
-        footTitle.className = 'menu-title '
-        footInfo.className = 'menu-info'
-        footPhotoItem.src = `${element.img}`
-        footTitleItem.innerHTML = `${element.title}`
-        footPriceItem.innerHTML = `${element.price}`
-        footInfo.innerHTML = `${element.desc}`
-        footTitle.appendChild(footTitleItem)
-        footTitle.appendChild(footPriceItem)
-        footInfo.appendChild(footInfoItem)
-        footText.appendChild(footTitle)
-        footText.appendChild(footInfo)
-        footPhoto.appendChild(footPhotoItem)
-        foot.appendChild(footPhoto)
-        foot.appendChild(footText)
-            // foot.appendChild(footInfo)
-        menu.appendChild(foot)
-    });
+    createFootElement(chinaFootLisy)
+
 }
 
 function clearDom() {
